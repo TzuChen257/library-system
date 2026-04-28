@@ -48,28 +48,17 @@
 
 ## 2. 系統範圍
 
-### 2.1 保留功能
-
-| 模組 | 是否保留 | 說明 |
-|---|---:|---|
-| 登入功能 | 保留 | 讀者與管理員登入，帳號來源皆為 `users`。 |
-| 使用者資料管理 | 保留 | 管理員維護使用者資料；讀者查看個人資料。 |
-| 書籍資料管理 | 保留並重構 | 書目資料使用 `books`，實體館藏使用 `book_copies`。 |
-| 書籍分類 | 保留並調整 | 使用 `book_categories`，分類 ID 採中文圖書分類法代碼。 |
-| 借閱功能 | 保留並重構 | 借閱對象改為 `book_copies.copy_id`。 |
-| 歸還申請與審核 | 保留 | 讀者提出歸還申請，管理員確認歸還與書況。 |
-| 預約功能 | 保留並重構 | 預約對象為 `books.book_id`。 |
-| 訊息通知 message | 保留 | 借閱、歸還、預約、系統通知使用。 |
-| Excel 匯入匯出 | 可保留為管理員進階功能 | 若時間不足，可列為第二階段。 |
-
-### 2.2 移除功能
-
-| 原功能 | 移除原因 | 對應移除項目 |
-|---|---|---|
-| 讀書心得撰寫 | 本次專案聚焦館藏與借閱流程 | `ReviewUI`、`ReviewPublicUI`、`ReviewCheckUI` |
-| 心得草稿 | 與讀書心得功能綁定 | `review_drafts`、`ReviewDraftsDao`、`ReviewDraftsService` |
-| 心得公開與審核 | 與讀書心得功能綁定 | `reviews`、`ReviewsDao`、`ReviewsService` |
-| 心得相關 VO | 不再需要 | `ReviewView`、`ReviewViewDaoImpl`、`ReviewViewServiceImpl` |
+| 模組 | 說明 |
+|---|---|
+| 登入功能 | 讀者與管理員登入，帳號來源皆為 `users`。 |
+| 使用者資料管理 | 管理員維護使用者資料；讀者查看個人資料。 |
+| 書籍資料管理 | 書目資料使用 `books`，實體館藏使用 `book_copies`。 |
+| 書籍分類 | 使用 `book_categories`，分類 ID 採中文圖書分類法代碼。 |
+| 借閱功能 | 借閱對象改為 `book_copies.copy_id`。 |
+| 歸還申請與審核 | 讀者提出歸還申請，管理員確認歸還與書況。 |
+| 預約功能 | 預約對象為 `books.book_id`。 |
+| 訊息通知 message | 借閱、歸還、預約、系統通知使用。 |
+| Excel 匯入匯出 | 若時間不足，可列為第二階段。 |
 
 ---
 
@@ -210,8 +199,6 @@
 | `borrow_records` | 借閱紀錄 | `AUTO_INCREMENT` |
 | `reservations` | 預約紀錄 | `AUTO_INCREMENT` |
 | `messages` | 訊息通知 | `AUTO_INCREMENT` |
-| `reviews` | 讀書心得 | 移除 |
-| `review_drafts` | 心得草稿 | 移除 |
 
 ### 6.2 `users` 使用者資料表
 
